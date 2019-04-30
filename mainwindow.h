@@ -1,6 +1,9 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "opencv2/imgproc/imgproc.hpp"
+#include "opencv2/highgui/highgui.hpp"
+#include <opencv2/objdetect/objdetect.hpp>
 #include <QMainWindow>
 
 namespace Ui {
@@ -16,7 +19,7 @@ public:
     ~MainWindow();
 
 private:
-    Ui::MainWindow *ui;//super on s'amuse bien de fou
+    Ui::MainWindow *ui;
 };
 
 #endif // MAINWINDOW_H
