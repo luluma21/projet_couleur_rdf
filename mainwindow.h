@@ -16,7 +16,7 @@ public:
     ~MainWindow();
 
 private:
-    Ui::MainWindow *ui;
+    Ui::MainWindow *ui;//super on s'amuse bien de fou
 };
 
 #endif // MAINWINDOW_H
