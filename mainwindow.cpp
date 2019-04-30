@@ -11,4 +11,5 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+    // Coucou lucas le plus beau
 }
