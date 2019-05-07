@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include <QApplication>
-#include"classification.h"
+#include "classification.h"
 
 #include "opencv2/imgproc/imgproc.hpp"
 #include "opencv2/highgui/highgui.hpp"
@@ -20,10 +20,10 @@ int main(int argc, char *argv[])
 
     //filters declaration
     cv::CascadeClassifier face_cascade1,face_cascade2, face_cascade3, face_cascade4;
-    face_cascade1.load("C:/Users/Florian/Desktop/TestDetectMultiScale (2)/haarcascade_frontalface_default.xml"); //Renvoie bool
-    face_cascade2.load("C:/Users/Florian/Desktop/TestDetectMultiScale (2)/haarcascade_frontalface_alt2.xml");
-    face_cascade3.load("C:/Users/Florian/Desktop/TestDetectMultiScale (2)/haarcascade_frontalface_alt.xml");
-    face_cascade4.load("C:/Users/Florian/Desktop/TestDetectMultiScale (2)/haarcascade_frontalface_alt_tree.xml");
+    face_cascade1.load("haarcascade_frontalface_default.xml"); //Renvoie un bool
+    face_cascade2.load("haarcascade_frontalface_alt2.xml");
+    face_cascade3.load("haarcascade_frontalface_alt.xml");
+    face_cascade4.load("haarcascade_frontalface_alt_tree.xml");
     String emotions[]={"Joie","Colere","Neutre","Tristesse"};
 //Data preparation
     //Creation of the faces folders
