@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 
     //filters declaration
     cv::CascadeClassifier face_cascade1,face_cascade2, face_cascade3, face_cascade4;
-    face_cascade1.load("C:/Users/Florian/Desktop/TestDetectMultiScale (2)/haarcascade_frontalface_default.xml");
+    face_cascade1.load("C:/Users/Florian/Desktop/TestDetectMultiScale (2)/haarcascade_frontalface_default.xml"); //Renvoie bool
     face_cascade2.load("C:/Users/Florian/Desktop/TestDetectMultiScale (2)/haarcascade_frontalface_alt2.xml");
     face_cascade3.load("C:/Users/Florian/Desktop/TestDetectMultiScale (2)/haarcascade_frontalface_alt.xml");
     face_cascade4.load("C:/Users/Florian/Desktop/TestDetectMultiScale (2)/haarcascade_frontalface_alt_tree.xml");
@@ -54,9 +54,9 @@ int main(int argc, char *argv[])
             face_cascade4.detectMultiScale( image_gray, faces4, 1.1, 4, 0|CV_HAAR_SCALE_IMAGE, Size(60, 60) );
 
             if (faces1.size()==1)faces = faces1;
-             else if (faces2.size()==1)faces = faces2;
-             else if (faces3.size()==1)faces = faces3;
-             else if (faces4.size()==1)faces = faces4;
+            else if (faces2.size()==1)faces = faces2;
+            else if (faces3.size()==1)faces = faces3;
+            else if (faces4.size()==1)faces = faces4;
              //Resize of the image around the face
             if (faces.size()>0){
             counter++;
