@@ -26,11 +26,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    classification.cpp
+    classification.cpp \
+    utilities.cpp
 
 HEADERS += \
         mainwindow.h \
-    classification.h
+    classification.h \
+    utilities.h
 
 FORMS += \
         mainwindow.ui
@@ -44,4 +46,7 @@ LIBS += -L$$(OPENCV_DIR)/lib \
     -lopencv_features2d2413 \
     -lopencv_calib3d2413 \
     -lopencv_objdetect2413
+
+DISTFILES += \
+    ../../Desktop/TestDetectMultiScale (2)/haarcascade_frontalface_alt.xml
 
