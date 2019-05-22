@@ -24,12 +24,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
+    camerawidget.cpp \
         main.cpp \
         mainwindow.cpp \
     classification.cpp \
     utilities.cpp
 
 HEADERS += \
+    camerawidget.h \
         mainwindow.h \
     classification.h \
     utilities.h
@@ -49,4 +51,6 @@ LIBS += -L$$(OPENCV_DIR)/lib \
 
 RESOURCES += \
     haar.qrc
+
+DISTFILES +=
 

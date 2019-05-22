@@ -10,6 +10,7 @@
 #include <cstdio>
 #include <iostream>
 #include <direct.h>
+#include <QFile>
 
 using namespace cv;
 using namespace std;
@@ -18,17 +19,25 @@ using namespace std;
 int main(int argc, char *argv[])
 {
 
+    QApplication a(argc,argv);
+    MainWindow w;
+    for (int i = 1;i<5;i++) {
+        QFile file(":/filters/f"+(QString)i);
+    }
     //filters declaration
     cv::CascadeClassifier face_cascade1,face_cascade2, face_cascade3, face_cascade4;
-    face_cascade1.load("haarcascade_frontalface_default.xml"); //Renvoie un bool
-    face_cascade2.load("haarcascade_frontalface_alt2.xml");
-    face_cascade3.load("haarcascade_frontalface_alt.xml");
-    face_cascade4.load("haarcascade_frontalface_alt_tree.xml");
+    face_cascade1.load("./haarcascade_frontalface_alt.xml"); //Renvoie un bool
+    face_cascade2.load(":/filters/f2");
+    face_cascade3.load(":/filters/f3");
+    face_cascade4.load(":/filters/f4");
     String emotions[]={"Joie","Colere","Neutre","Tristesse"};
 //Data preparation
     //Creation of the faces folders
-    String directory = "C:/Users/Florian/Desktop/faces";
-    String initial_directory = "C:/Users/Florian/Desktop/base_d_image";
+    //D:/Cours/Semestre8/ChefdOeuvre/faces
+    String directory = "D:/Cours/Semestre8/ChefdOeuvre/faces";
+    //C:/Users/Florian/Desktop/base_d_image
+    //D:/Cours/Semestre8/ChefdOeuvre/BasedImages
+    String initial_directory = "D:/Cours/Semestre8/ChefdOeuvre/BasedImages";
     mkdir(directory.c_str());
 
     for (int i = 0; i < (int) emotions->size(); i++) {
@@ -74,13 +83,16 @@ int main(int argc, char *argv[])
 
 
         }
-        Ptr<FaceRecognizer> fishface = cv::createFisherFaceRecognizer(); //treshhold ??
+        //Ptr<FaceRecognizer> fishface = cv::createFisherFaceRecognizer(); //treshhold ??
         //create a 80/20 training set for each class
         vector<Mat> training_data,prediction_data;
         for (int i=0;i<(int)emotions->size();i++){
 
 
         }
+
+        w.show();
+        return a.exec();
 }
 
 
