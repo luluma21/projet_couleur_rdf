@@ -7,7 +7,6 @@
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
 TARGET = projet_couleur_rdf
 TEMPLATE = app
 
@@ -25,10 +24,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    playlist.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    playlist.h
 
 FORMS += \
         mainwindow.ui
@@ -42,4 +43,7 @@ LIBS += -L$$(OPENCV_DIR)/lib \
     -lopencv_features2d2413 \
     -lopencv_calib3d2413 \
     -lopencv_objdetect2413
+
+RESOURCES += \
+    base_music.qrc
 

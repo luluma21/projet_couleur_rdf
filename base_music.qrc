@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>base_music/BDD_Musiques.txt</file>
+        <file>base_music/icone_music.png</file>
+    </qresource>
+</RCC>
