@@ -155,8 +155,56 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+   <widget class="CameraWidget" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>50</y>
+      <width>681</width>
+      <height>501</height>
+     </rect>
+    </property>
+   </widget>
+    <property name="geometry">
+   <widget class="QPushButton" name="pushButton">
+     <rect>
+      <x>300</x>
+      <y>580</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Freeze</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>580</y>
+      <width>151</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Reprendre une photo</string>
+    </property>
+   </widget>
+  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>CameraWidget</class>
+   <extends>QWidget</extends>
+   <header>camerawidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

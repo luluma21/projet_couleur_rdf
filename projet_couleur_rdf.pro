@@ -23,12 +23,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
+    camerawidget.cpp \
         main.cpp \
-        mainwindow.cpp \
+    classification.cpp \
+    utilities.cpp
     playlist.cpp
 
 HEADERS += \
+    camerawidget.h \
         mainwindow.h \
+    classification.h \
+    utilities.h
     playlist.h
 
 FORMS += \
@@ -44,6 +49,5 @@ LIBS += -L$$(OPENCV_DIR)/lib \
     -lopencv_calib3d2413 \
     -lopencv_objdetect2413
 
-RESOURCES += \
+    haar.qrc
     base_music.qrc
-
