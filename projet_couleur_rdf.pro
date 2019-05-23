@@ -26,14 +26,17 @@ SOURCES += \
     camerawidget.cpp \
         main.cpp \
     classification.cpp \
-    utilities.cpp
+    utilities.cpp \
+    playlist.cpp \
+    mainwindow.cpp
     playlist.cpp
 
 HEADERS += \
     camerawidget.h \
         mainwindow.h \
     classification.h \
-    utilities.h
+    utilities.h \
+    playlist.h
     playlist.h
 
 FORMS += \
@@ -50,4 +53,7 @@ LIBS += -L$$(OPENCV_DIR)/lib \
     -lopencv_objdetect2413
 
     haar.qrc
+    base_music.qrc
+
+RESOURCES += \
     base_music.qrc

@@ -7,7 +7,7 @@
 classification::classification()
 {
     cv::CascadeClassifier face_cascade;
-    if(!face_cascade.load("C:/Users/Florian/Desktop/TestDetectMultiScale (2)/haarcascade_frontalface_alt.xml")){
+    if(!face_cascade.load(":/classifieurs/haarcascade_frontalface_alt.xml")){
         std::cout<<"ERROR";
     }
     else {

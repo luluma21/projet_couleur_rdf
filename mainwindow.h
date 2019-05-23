@@ -24,11 +24,14 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_accessButton_clicked();
 
     void on_test_button_clicked();
 
     void on_change_clicked();
+
+    void on_pushButton_clicked();
+    void on_pushButton_2_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -44,9 +47,6 @@ private:
 
 public slots:
     bool testIfOk();
-private slots:
-    void on_pushButton_clicked();
-    void on_pushButton_2_clicked();
 };
 
 #endif // MAINWINDOW_H

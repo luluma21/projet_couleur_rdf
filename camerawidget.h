@@ -32,26 +32,26 @@ private:
 
 
     //VideoCapture pour la webcam
-     VideoCapture * webCam_;
-     //Qlabel d'affichage de la caméra
-     QLabel *screen;
-     //Image courante
-     QImage *CurentImage;
-     //Feuille de Haar pour détéction des mains
-     CascadeClassifier fist_cascade ;
-     //Booléen vrai si la capture n'est pas encore faite
-     bool running;
+    VideoCapture * webCam_;
+    //Qlabel d'affichage de la caméra
+    QLabel *screen;
+    //Image courante
+    QImage *CurentImage;
+    //Feuille de Haar pour détéction des mains
+    CascadeClassifier fist_cascade ;
+    //Booléen vrai si la capture n'est pas encore faite
+    bool running;
 
-     // Compteur pour exécuter l'alogorithme de détéction tout les 50ms
-     int counter =0;
+    // Compteur pour exécuter l'alogorithme de détéction tout les 50ms
+    int counter =0;
 
 
 
 signals:
 
 public slots:
-      //Méthode de rafraichissement de l'affichage et éxecution de l'algorithme de détéction
-         void refresh();
+    //Méthode de rafraichissement de l'affichage et éxecution de l'algorithme de détéction
+    void refresh();
 };
 
 #endif // CAMERAWIDGET_H
