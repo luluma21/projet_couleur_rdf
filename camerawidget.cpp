@@ -17,42 +17,8 @@ using namespace std;
 
 CameraWidget::CameraWidget(QWidget *parent) : QWidget(parent)
 {
-    /*QTemporaryDir tempDir;
-    //cout<<tempDir.path().toStdString();
-    if (tempDir.isValid()) {
-      const QString tempFile = tempDir.path() + "/cascade.xml";
-      if (QFile::copy(":/cascade/cascade.xml", tempFile)) {
-          if(!    fist_cascade.load(tempFile.toStdString()))
-      {
-              qDebug()<<"error";
-          }
-      }
-    }*/
-    QString fileName = ":/base_music/base_music/cascade.xml";
-    QFile fichier(fileName);
-    fichier.open(QIODevice::ReadOnly | QIODevice::Text);
-    QTextStream flux(&fichier);
-
-    QFile file("fichier.xml");
-    QDataStream binStream(&file);
-    // On spécifie la version de l'encodage qui va être utilisé par notre objet QDataStream
-    binStream.setVersion(QDataStream::Qt_4_4);
-    // On écrit nos différents objets dans le fichie
-    if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
-      return;
-    QString ligne;
-    std::vector<QString> list_total;
-    while(!flux.atEnd())
-    {
-        ligne = flux.readLine();
-        binStream << ligne;
-        list_total.push_back(ligne);
-    }
-
-    file.close();
-    if(!fist_cascade.load("fichier.xml")){
+    if(!fist_cascade.load("D:/couleur_rdf/projet_couleur_rdf/projet_couleur_rdf/base_music/cascade.xml")){
         cerr<<"Error loading haarcascade"<<endl;
-
     }
 
     webCam_=new VideoCapture(0);
@@ -92,20 +58,13 @@ void CameraWidget::refresh(){
             ellipse_center.y = frameHeight/2;
             // Affichage de l'ellipse
             ellipse(frame, ellipse_center, Size(frameWidth/4, frameHeight/4), 90, 0, 360, ellipse_color, 2, 8);
-            //circle(frame, ellipse_center, 5, Scalar(0,255,0), 1 ,8, 0);
 
             if (face.size()>0 && face.size()<2) // on affiche les rectangles et on identifie le mouvement seulement quand on détecte 2 points par la caméra
             {
-                // Draw green rectangle
-                //rectangle(frame,face[0],Scalar(0,255,0),2);
-
-                //cout << face[0]<<endl; //face[0] est une liste de Rect dont les attributs sont width, height, x et y du point en haut à gauche
-
                 // calcul du centre du rectangle (du visage détecté):
                 Point face_center;
                 face_center.x = face[0].x + (face[0].width/2);
                 face_center.y = face[0].y + (face[0].height/2);
-                //circle(frame, face_center, 5, Scalar(255, 0, 0), 1, 8, 0);
 
                 int marge_x = 10;
                 int marge_y = 100;

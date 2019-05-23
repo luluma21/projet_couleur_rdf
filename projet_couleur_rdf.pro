@@ -25,8 +25,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     camerawidget.cpp \
         main.cpp \
-    classification.cpp \
-    utilities.cpp \
     playlist.cpp \
     mainwindow.cpp
     playlist.cpp
@@ -34,8 +32,6 @@ SOURCES += \
 HEADERS += \
     camerawidget.h \
         mainwindow.h \
-    classification.h \
-    utilities.h \
     playlist.h
     playlist.h
 

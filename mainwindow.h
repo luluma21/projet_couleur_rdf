@@ -28,8 +28,6 @@ private slots:
 
     void on_test_button_clicked();
 
-    void on_change_clicked();
-
     void on_pushButton_clicked();
     void on_pushButton_2_clicked();
 
@@ -44,6 +42,7 @@ private:
     playlist* music;
     QTimer *timer;
     CameraWidget *cameraWidget;
+    bool testok = false;
 
 public slots:
     bool testIfOk();

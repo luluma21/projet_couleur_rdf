@@ -41,6 +41,9 @@
     </property>
    </widget>
    <widget class="QPushButton" name="music_button">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>512</x>
@@ -57,6 +60,9 @@
     </property>
    </widget>
    <widget class="QListWidget" name="listWidget">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>710</x>
@@ -90,6 +96,9 @@
     </property>
    </widget>
    <widget class="QPushButton" name="test_button">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>510</x>
@@ -103,6 +112,9 @@
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>210</x>
@@ -146,19 +158,6 @@
     </property>
     <property name="text">
      <string>Votre playlist personalisée</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="change">
-    <property name="geometry">
-     <rect>
-      <x>530</x>
-      <y>20</y>
-      <width>93</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton">

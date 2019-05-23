@@ -13,13 +13,19 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    // ouverture de l'interface
     ui->setupUi(this);
     humor = "Colere";
+
+    // initialisation de la plylist
     music = new playlist();
+
+    // affichage de la vidéo récupéré par la webcam
     timer =new QTimer;
     connect(timer, SIGNAL(timeout()), ui->widget,SLOT(refresh()));
     connect(timer, SIGNAL(timeout()), this,SLOT(testIfOk()));
     timer->start(10);
+    connect(ui->music_button,SIGNAL(clicked()),this,SLOT(on_accessButton_clicked()));
 }
 
 MainWindow::~MainWindow()
@@ -27,12 +33,15 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+// fonction pour accéder à la vidéo sur youtube
 void MainWindow::on_accessButton_clicked()
 {
     if (ui->listWidget->selectedItems().size()==1){
-        int ind = 0;
-        QList<QListWidgetItem*> ele = ui->listWidget->selectedItems();
-        QString ele1 = ele[0]->text();
+        QList<QListWidgetItem*> ele;
+        ele.clear();
+        ele = ui->listWidget->selectedItems();
+        QString ele1 = "";
+        ele1 = ele[0]->text();
         for (int k=0;k<music_name.size();k++){
             if (ele1 == music_name[k] + "\n" + music_author[k]){
                 QString command = "cmd /c start " + music_link[k];
@@ -43,8 +52,10 @@ void MainWindow::on_accessButton_clicked()
     }
 }
 
+// test de l'humeur et affichage de la playlist
 void MainWindow::on_test_button_clicked()
 {
+    testok = true;
     music_name.clear();
     music_author.clear();
     music_link.clear();
@@ -54,7 +65,6 @@ void MainWindow::on_test_button_clicked()
     music->change_element(humor);
     music1 = music->get_element();
     for (int k=0;k<music1.size();k++){
-        QListWidgetItem* newitem;
         int i=0;
         int j=music1[k].indexOf(QString(';'),i);
         music_name.push_back(music1[k].mid(i,j-i));
@@ -66,37 +76,43 @@ void MainWindow::on_test_button_clicked()
         newItem->setText(music_name[k] + "\n" + music_author[k]);
         newItem->setTextAlignment(Qt::AlignHCenter);
         newItem->setTextAlignment(Qt::AlignVCenter);
-        //newItem->setIconSize(QSize(100, 100));
         newItem->setIcon(newicon);
         if (k%2 == 0){
             newItem->setBackground(QBrush(QColor(255, 220, 220, 255)));
         }
-        //newItem->(QSize(100, 100));
         ui->listWidget->setIconSize(QSize(75, 75));
         ui->listWidget->addItem(newItem);
-        //music_name_author.push_back(QListWidgetItem(music_name[k] + "\n" + music_author[k]));
-        //music_name_author.push_back(music1[k].mid(i,j-i) + "\n" + music1[k].mid(i,j-i));
     }
     for (int k=0;k<music_name_author.size();k++){
-        //      ui->listWidget->addItem(music_name_author[k]);
     }
-    //ui->listWidget->addItems(music_name_author);
 
     ui->label_2->setText(humor);
-
-    connect(ui->music_button,SIGNAL(clicked()),this,SLOT(on_accessButton_clicked()));
-}
-
-void MainWindow::on_change_clicked()
-{
-    humor = "Neutre";
+humor = "Joie";
 }
 
 bool MainWindow::testIfOk(){
     if(ui->widget->getEllipseColor()==Scalar(0,0,255)) ui->pushButton->setEnabled(false);
     else if(ui->widget->getEllipseColor()==Scalar(0,255,0)) ui->pushButton->setEnabled(true);
-    if(!ui->widget->getRunning()) ui->pushButton_2->setEnabled(true);
-    else if(ui->widget->getRunning()) ui->pushButton_2->setEnabled(false);
+    if(!ui->widget->getRunning()) {
+        ui->pushButton_2->setEnabled(true);
+        ui->test_button->setEnabled(true);
+    }
+    else if(ui->widget->getRunning()) {
+        ui->pushButton_2->setEnabled(false);
+        ui->test_button->setEnabled(false);
+        ui->label_2->hide();
+        ui->listWidget->hide();
+        testok = false;
+        ui->music_button->setEnabled(false);
+    }
+    if (testok == true){
+        ui->label_2->show();
+        ui->listWidget->show();
+        if (ui->listWidget->selectedItems().size()==1){
+            ui->music_button->setEnabled(true);
+        }
+        else{ui->music_button->setEnabled(false);}
+    }
 }
 
 void MainWindow::on_pushButton_clicked()
