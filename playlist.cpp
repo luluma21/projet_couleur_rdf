@@ -6,7 +6,7 @@
 playlist::playlist()
 {
     QString ligne;
-    QString fileName = ":/base_music/BDD_Musiques.txt";
+    QString fileName = ":/base_music/base_music/BDD_Musiques.txt";
     QFile fichier(fileName);
     fichier.open(QIODevice::ReadOnly | QIODevice::Text);
     QTextStream flux(&fichier);
@@ -35,9 +35,3 @@ void playlist::change_element(QString ind){
         list_music.push_back(list_total[i]);
     }
 }
-
-
-
-
-
-
